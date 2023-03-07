@@ -183,6 +183,10 @@ GEM
       decidim-core (= 0.21.0)
       jquery-rails (~> 4.3)
       redcarpet (~> 3.4)
+    decidim-consultations (0.21.0)
+      decidim-admin (= 0.21.0)
+      decidim-comments (= 0.21.0)
+      decidim-core (= 0.21.0)
     decidim-core (0.21.0)
       active_link_to (~> 1.0)
       anchored (>= 1.1.0)
@@ -756,6 +760,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   daemons
   decidim (= 0.21.0)
+  decidim-consultations (= 0.21.0)
   decidim-dev (= 0.21.0)
   delayed_job_active_record
   faker (~> 1.9)
@@ -773,4 +778,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.3
+   2.2.14
