@@ -1,8 +1,8 @@
-# Load the Rails application.
-require_relative 'application'
+# frozen_string_literal: true
 
-require 'wicked_pdf'
-require_relative 'application'
+# Load the Rails application.
+require_relative "application"
+require "wicked_pdf"
 
 # Initialize the Rails application.
 Rails.application.initialize!

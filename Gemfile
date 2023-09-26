@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.26-stable" }
+DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
@@ -32,7 +32,7 @@ group :development do
 end
 
 group :production do
-  gem "passenger"
-  gem 'delayed_job_active_record'
   gem "daemons"
+  gem "delayed_job_active_record"
+  gem "passenger"
 end
