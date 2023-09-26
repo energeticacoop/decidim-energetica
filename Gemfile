@@ -12,14 +12,12 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "bootsnap", "~> 1.3"
 
 gem "puma", "> 5.0"
-gem "uglifier", "~> 4.1"
-
-gem "faker", "~> 2.14"
 
 gem "figaro"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
+  gem "faker", "~> 2.14"
 
   gem "decidim-dev", DECIDIM_VERSION
 end
