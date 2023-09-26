@@ -37,3 +37,9 @@ public/uploads
 /config/application.yml.save
 
 public/sw.js*
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
