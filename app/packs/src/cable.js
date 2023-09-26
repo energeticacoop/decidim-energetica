@@ -5,10 +5,9 @@
 // = require_self
 // = require_tree ./channels
 
-/* eslint-disable no-undef, no-unused-expressions */
-(function() {
-  this.App || (this.App = {});
+/* global App, ActionCable */
 
+(function() {
+  this.App = this.App || {};
   App.cable = ActionCable.createConsumer();
 }).call(this);
-/* eslint-enable no-undef, no-unused-expressions */
