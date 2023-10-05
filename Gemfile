@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.24-stable" }
+DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
@@ -12,14 +12,12 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "bootsnap", "~> 1.3"
 
 gem "puma", "> 5.0"
-gem "uglifier", "~> 4.1"
-
-gem "faker", "~> 1.9"
 
 gem "figaro"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
+  gem "faker", "~> 2.14"
 
   gem "decidim-dev", DECIDIM_VERSION
 end
@@ -27,13 +25,14 @@ end
 group :development do
   gem "letter_opener_web"
   gem "listen", "~> 3.1"
+  gem "rubocop-faker", "~> 1.1"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 3.5"
+  gem "web-console", "~> 4.2"
 end
 
 group :production do
-  gem "passenger"
-  gem 'delayed_job_active_record'
   gem "daemons"
+  gem "delayed_job_active_record"
+  gem "passenger"
 end
