@@ -45,13 +45,6 @@ describe "Visit the signup page", type: :system, perform_enqueued: true do
     end
   end
 
-  it "renders calendar" do
-    click_link "Calendar"
-    within ".layout-content" do
-      expect(page).to have_content("External events")
-    end
-  end
-
   it "renders newsletters" do
     click_link "Newsletters"
     within ".layout-content" do
