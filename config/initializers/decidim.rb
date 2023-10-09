@@ -306,8 +306,8 @@ Decidim.configure do |config|
   # for more information about how it works and how to set it up.
   #
   # Enable machine translations
-  config.enable_machine_translations = Rails.application.secrets.translator[:api_key].present?
-  config.machine_translation_service = "DeeplTranslator"
+  # config.enable_machine_translations = Rails.application.secrets.translator[:api_key].present?
+  # config.machine_translation_service = "DeeplTranslator"
 
   # If you want to enable machine translation you can create your own service
   # to interact with third party service to translate the user content.
