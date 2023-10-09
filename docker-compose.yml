@@ -5,6 +5,7 @@ services:
     volumes:
       - ./public/uploads:/app/public/uploads
       - ./storage:/app/storage
+    restart: ${RESTART_POLICY:-always}
     environment:
       - DATABASE_URL=${DATABASE_URL:-postgres://postgres:decidim@db/decidim}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE:-b0ada19c892e3b02434b0a4ae28fc6482d4a98fcbda1f80d3340982f358a3c1cbab0b8e6a1f45706010517c117416a4e6c47e6c2973c1f39633e6906bb8da27e}
@@ -39,6 +40,7 @@ services:
     volumes:
       - ./public/uploads:/app/public/uploads
       - ./storage:/app/storage
+    restart: ${RESTART_POLICY:-always}
     environment:
       - DATABASE_URL=${DATABASE_URL:-postgres://postgres:decidim@db/decidim}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE:-b0ada19c892e3b02434b0a4ae28fc6482d4a98fcbda1f80d3340982f358a3c1cbab0b8e6a1f45706010517c117416a4e6c47e6c2973c1f39633e6906bb8da27e}
