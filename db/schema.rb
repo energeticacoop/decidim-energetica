@@ -408,11 +408,11 @@ ActiveRecord::Schema.define(version: 2023_10_09_113249) do
     t.string "decidim_root_commentable_type", null: false
     t.integer "decidim_root_commentable_id", null: false
     t.string "decidim_author_type", null: false
+    t.datetime "deleted_at"
     t.jsonb "body"
     t.integer "comments_count", default: 0, null: false
     t.string "decidim_participatory_space_type"
     t.integer "decidim_participatory_space_id"
-    t.datetime "deleted_at"
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_comments_comments_on_decidim_author"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
