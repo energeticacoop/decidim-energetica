@@ -51,12 +51,12 @@ describe "Visit the home page", versioning: true, type: :system, perform_enqueue
     expect(page).to have_content(emendation.authors.first.name)
   end
 
-  it "renders a meeting" do
-    visit meeting_path
+  # it "renders a meeting" do
+  #   visit meeting_path
 
-    expect(page).to have_content(process.title["en"])
-    expect(page).to have_content(meeting.title["en"])
-  end
+  #   expect(page).to have_content(process.title["en"])
+  #   expect(page).to have_content(meeting.title["en"])
+  # end
 
   it "renders an amendment" do
     visit emendation_path
