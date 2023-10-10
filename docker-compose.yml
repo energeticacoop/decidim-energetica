@@ -1,28 +1,28 @@
 version: '3'
 services:
   app:
-    image: .
+    build: .
     volumes:
       - ./public/uploads:/app/public/uploads
       - ./storage:/app/storage
     restart: ${RESTART_POLICY:-always}
     environment:
-      - DATABASE_URL=${DATABASE_URL:-postgres://postgres:decidim@db/decidim}
-      - SECRET_KEY_BASE=${SECRET_KEY_BASE:-b0ada19c892e3b02434b0a4ae28fc6482d4a98fcbda1f80d3340982f358a3c1cbab0b8e6a1f45706010517c117416a4e6c47e6c2973c1f39633e6906bb8da27e}
-      - DECIDIM_FORCE_SSL=${DECIDIM_FORCE_SSL:false}
-      - QUEUE_ADAPTER=${QUEUE_ADAPTER:-sidekiq}
-      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
-      - RUN_RAILS=${RUN_RAILS:-true}
-      - RUN_SIDEKIQ=${RUN_SIDEKIQ:-true}
-      - WEB_CONCURRENCY=${WEB_CONCURRENCY:-2}
-      - LOG_LEVEL=${LOG_LEVEL:-info}
-      - MAPS_PROVIDER=${MAPS_PROVIDER:-here}
-      - DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=${DECIDIM_ENABLE_HTML_HEADER_SNIPPETS:-true}
-      - CHANGE_ACTIVE_STEP=${CHANGE_ACTIVE_STEP:-disabled}
-      - SEND_REMINDERS=${SEND_REMINDERS:-disabled}
-      - WEEKLY_NOTIFICATIONS_DIGEST=${WEEKLY_NOTIFICATIONS_DIGEST:-disabled}
-      - DAILY_NOTIFICATIONS_DIGEST=${DAILY_NOTIFICATIONS_DIGEST:-disabled}
-      - SMTP_STARTTLS_AUTO=${SMTP_STARTTLS_AUTO:-true}
+      - DATABASE_URL="${DATABASE_URL:-postgres://postgres:decidim@db/decidim}"
+      - SECRET_KEY_BASE="${SECRET_KEY_BASE:-b0ada19c892e3b02434b0a4ae28fc6482d4a98fcbda1f80d3340982f358a3c1cbab0b8e6a1f45706010517c117416a4e6c47e6c2973c1f39633e6906bb8da27e}"
+      - DECIDIM_FORCE_SSL="${DECIDIM_FORCE_SSL:-false}"
+      - QUEUE_ADAPTER="${QUEUE_ADAPTER:-sidekiq}"
+      - REDIS_URL="${REDIS_URL:-redis://redis:6379/0}"
+      - RUN_RAILS="${RUN_RAILS:-true}"
+      - RUN_SIDEKIQ="${RUN_SIDEKIQ:-true}"
+      - WEB_CONCURRENCY="${WEB_CONCURRENCY:-2}"
+      - LOG_LEVEL="${LOG_LEVEL:-info}"
+      - MAPS_PROVIDER="${MAPS_PROVIDER:-here}"
+      - DECIDIM_ENABLE_HTML_HEADER_SNIPPETS="${DECIDIM_ENABLE_HTML_HEADER_SNIPPETS:-true}"
+      - CHANGE_ACTIVE_STEP="${CHANGE_ACTIVE_STEP:-disabled}"
+      - SEND_REMINDERS="${SEND_REMINDERS:-disabled}"
+      - WEEKLY_NOTIFICATIONS_DIGEST="${WEEKLY_NOTIFICATIONS_DIGEST:-disabled}"
+      - DAILY_NOTIFICATIONS_DIGEST="${DAILY_NOTIFICATIONS_DIGEST:-disabled}"
+      - SMTP_STARTTLS_AUTO="${SMTP_STARTTLS_AUTO:-true}"
       - SMTP_USERNAME
       - SMTP_PASSWORD
       - SMTP_ADDRESS
@@ -36,29 +36,29 @@ services:
       - db
       - redis
   sidekiq:
-    image: .
+    build: .
     volumes:
       - ./public/uploads:/app/public/uploads
       - ./storage:/app/storage
     restart: ${RESTART_POLICY:-always}
     environment:
-      - DATABASE_URL=${DATABASE_URL:-postgres://postgres:decidim@db/decidim}
-      - SECRET_KEY_BASE=${SECRET_KEY_BASE:-b0ada19c892e3b02434b0a4ae28fc6482d4a98fcbda1f80d3340982f358a3c1cbab0b8e6a1f45706010517c117416a4e6c47e6c2973c1f39633e6906bb8da27e}
-      - DECIDIM_FORCE_SSL=${DECIDIM_FORCE_SSL:false}
-      - QUEUE_ADAPTER=${QUEUE_ADAPTER:-sidekiq}
-      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
+      - DATABASE_URL="${DATABASE_URL:-postgres://postgres:decidim@db/decidim}"
+      - SECRET_KEY_BASE="${SECRET_KEY_BASE:-b0ada19c892e3b02434b0a4ae28fc6482d4a98fcbda1f80d3340982f358a3c1cbab0b8e6a1f45706010517c117416a4e6c47e6c2973c1f39633e6906bb8da27e}"
+      - DECIDIM_FORCE_SSL="${DECIDIM_FORCE_SSL:-false}"
+      - QUEUE_ADAPTER="${QUEUE_ADAPTER:-sidekiq}"
+      - REDIS_URL="${REDIS_URL:-redis://redis:6379/0}"
       - SIDEKIQ_WORKER=true
-      - RUN_RAILS=${RUN_RAILS:-true}
-      - RUN_SIDEKIQ=${RUN_SIDEKIQ:-true}
-      - SIDEKIQ_CONCURRENCY=${SIDEKIQ_CONCURRENCY:-5}
-      - LOG_LEVEL=${LOG_LEVEL:-info}
-      - MAPS_PROVIDER=${MAPS_PROVIDER:-here}
-      - DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=${DECIDIM_ENABLE_HTML_HEADER_SNIPPETS:-true}
-      - CHANGE_ACTIVE_STEP=${CHANGE_ACTIVE_STEP:-disabled}
-      - SEND_REMINDERS=${SEND_REMINDERS:-disabled}
-      - WEEKLY_NOTIFICATIONS_DIGEST=${WEEKLY_NOTIFICATIONS_DIGEST:-disabled}
-      - DAILY_NOTIFICATIONS_DIGEST=${DAILY_NOTIFICATIONS_DIGEST:-disabled}
-      - SMTP_STARTTLS_AUTO=${SMTP_STARTTLS_AUTO:-true}
+      - RUN_RAILS="${RUN_RAILS:-true}"
+      - RUN_SIDEKIQ="${RUN_SIDEKIQ:-true}"
+      - SIDEKIQ_CONCURRENCY="${SIDEKIQ_CONCURRENCY:-5}"
+      - LOG_LEVEL="${LOG_LEVEL:-info}"
+      - MAPS_PROVIDER="${MAPS_PROVIDER:-here}"
+      - DECIDIM_ENABLE_HTML_HEADER_SNIPPETS="${DECIDIM_ENABLE_HTML_HEADER_SNIPPETS:-true}"
+      - CHANGE_ACTIVE_STEP="${CHANGE_ACTIVE_STEP:-disabled}"
+      - SEND_REMINDERS="${SEND_REMINDERS:-disabled}"
+      - WEEKLY_NOTIFICATIONS_DIGEST="${WEEKLY_NOTIFICATIONS_DIGEST:-disabled}"
+      - DAILY_NOTIFICATIONS_DIGEST="${DAILY_NOTIFICATIONS_DIGEST:-disabled}"
+      - SMTP_STARTTLS_AUTO="${SMTP_STARTTLS_AUTO:-true}"
       - DECIDIM_MAILER_SENDER
       - SMTP_USERNAME
       - SMTP_PASSWORD
@@ -72,9 +72,9 @@ services:
   db:
     image: postgres:14
     environment:
-      - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-decidim}
-      - POSTGRES_DB=${POSTGRES_DB:-decidim}
+      - POSTGRES_USER="${POSTGRES_USER:-postgres}"
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-decidim}"
+      - POSTGRES_DB="${POSTGRES_DB:-decidim}"
     volumes:
       - pg_data:/var/lib/postgresql/data
   redis:
