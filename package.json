@@ -1,29 +1,14 @@
 {
   "name": "app",
   "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
-    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
-    "stylelint": "stylelint **/*.scss",
-    "stylelint-fix": "stylelint **/*.scss --fix"
-  },
-  "stylelint": {
-    "extends": "@decidim/stylelint-config",
-    "rules": {
-      "block-opening-brace-space-before": "always"
-    }
-  },
   "dependencies": {
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
     "@decidim/elections": "file:packages/elections",
     "@decidim/webpacker": "file:packages/webpacker",
-    "@rails/actioncable": "latest",
-    "@rails/activestorage": "latest",
     "@rails/webpacker": "^6.0.0-rc.6",
     "webpack": "^5.51.1",
-    "webpack-cli": "5"
+    "webpack-cli": "^5.1.4"
   },
   "version": "0.1.0",
   "babel": {
@@ -39,11 +24,6 @@
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
     "@webpack-cli/serve": "^2.0.5",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "stylelint": "^13.11.0",
     "webpack-dev-server": "^4.15.1"
   }
 }
