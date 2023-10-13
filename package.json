@@ -29,8 +29,18 @@
       "./node_modules/@rails/webpacker/package/babel/preset.js"
     ],
     "plugins": [
-      ["@babel/plugin-transform-private-methods", { "loose": true }],
-      ["@babel/plugin-transform-private-property-in-object", { "loose": true }]
+      [
+        "@babel/plugin-transform-private-methods",
+        {
+          "loose": true
+        }
+      ],
+      [
+        "@babel/plugin-transform-private-property-in-object",
+        {
+          "loose": true
+        }
+      ]
     ]
   },
   "browserslist": [
@@ -40,12 +50,12 @@
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
+    "@webpack-cli/serve": "^2.0.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.27.5",
     "stylelint": "^13.11.0",
-    "@webpack-cli/serve": "^2.0.5",
     "webpack-dev-server": "^4.15.1"
   }
 }
