@@ -2,10 +2,9 @@
 
 Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
-This is the open-source repository for decidim-energetica, based on [Decidim](https://github.com/decidim/decidim).
+This is the open-source repository for decidim-energetica, an instance of [Decidim](https://github.com/decidim/decidim) for [Energética Coop](https://www.energetica.coop/).
 
-This the instance for the [Energética COOP](https://www.energetica.coop/).
-![Energetica](app/packs/images/logotipo_2x.png)
+<img src="app/packs/images/logotipo_2x.png" alt="Energética Coop" width="50%">
 
 ## Deploying the app
 
@@ -50,10 +49,12 @@ You will need to do some steps before having the app working properly once you'v
 
 1. Open a Rails console in the server: `bundle exec rails console`
 2. Create a System Admin user:
+
 ```ruby
 user = Decidim::System::Admin.new(email: <email>, password: <password>, password_confirmation: <password>)
 user.save!
 ```
+
 3. Visit `<your app url>/system` and login with your system admin credentials
 4. Create a new organization. Check the locales you want to use for that organization, and select a default locale.
 5. Set the correct default host for the organization, otherwise the app will not work properly. Note that you need to include any subdomain you might be using.
@@ -67,20 +68,21 @@ Usually upgrading Decidim just involves updating the [Gemfile](Gemfile) and runn
 
 Also note that is important to create database backups before any major upgrade is performed.
 
-
 Steps to upgrade:
 
 1. Update the Gemfile with the new version of Decidim you want to upgrade to, usually just update this part:
-  ```ruby
-  DECIDIM_VERSION = "0.27.4".freeze
-  ```
+
+```ruby
+DECIDIM_VERSION = "0.27.4".freeze
+```
 
 2. Run the following commands:
-  ```bash
-  bundle
-  bin/rails decidim:upgrade
-  bin/rails db:migrate
-  ``` 
+
+```bash
+bundle
+bin/rails decidim:upgrade
+bin/rails db:migrate
+```
 
 3. Check the official [RELEASE_NOTES](https://github.com/decidim/decidim/blob/develop/RELEASE_NOTES.md.md) for any additional steps you might need to perform. Be aware to match your current version with the version you're upgrading to.
 4. Test the app locally and check everything works as expected.
